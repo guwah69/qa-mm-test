@@ -1,7 +1,6 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
 import {expect, $, browser} from '@wdio/globals'
 
-import LoginPage, {LoginPage as  LoginPageType} from '../pageobjects/login.page';
 import HomePage, {HomePage as  HomePageType} from '../pageobjects/home.page';
 import SwitchNetworkPage, {SwitchNetworkPage as SwitchNetworkPageType} from '../pageobjects/switch-network.page';
 import Page, {BASE_URL} from "../pageobjects/page";
@@ -9,38 +8,19 @@ import Page, {BASE_URL} from "../pageobjects/page";
 import metaMaskPO from '../pageobjects/meta-mask';
 import metamaskData from '../pagedata/metamask-data';
 import elementUtil from "../pageobjects/element.util";
-import homePage from "../pageobjects/home.page.js";
 
 const pages: {
-    login: LoginPageType,
     home: HomePageType,
     switchNetwork: SwitchNetworkPageType
 } = {
-    login: LoginPage,
     home: HomePage,
     switchNetwork: SwitchNetworkPage,
 }
 
-// Given(/^I am on the (\w+) page$/, async (page: string) => {
-//     await pages[page].open()
-// });
-
-//
-// When(/^I login with (\w+) and (.+)$/, async (username, password) => {
-//     await LoginPage.login(username, password)
-// });
-//
-// Then(/^I should see a flash message saying (.*)$/, async (message) => {
-//     await expect(SecurePage.flashAlert).toBeExisting();
-//     await expect(SecurePage.flashAlert).toHaveText(expect.stringContaining(message));
-//     //@ts-ignore
-//     await browser.pause(4000);
-// });
 
 let initialHandles: string[] = [];
 let finalHandles: string[] = [];
 
-/** Test/Feature 1 **/
 Given(/^A user with metamask installed connected to mainnet network - Test (\d+) Scenario (\d+)$/, async (testId: number, scenarioId: number) => {
     if(testId && scenarioId && testId===1 && scenarioId===1){
         await pages.home.open();
@@ -126,7 +106,8 @@ Then(/^the page shows the input address field - Test (\d+) Scenario (\d+)$/, asy
 
 Then(/^the page doesn't show a network error message - Test (\d+) Scenario (\d+)$/, async (testId: number, scenarioId: number) => {
     await expect(await pages.home.networkErrorElem).not.toBeExisting();
-    await browser.pause(elementUtil.elementLoadTime * 2);
+    await browser.pause(elementUtil.elementLoadTime);
+    await browser.pause(elementUtil.elementLoadTime * 2000);
 });
 
 Then(/^the page shows a network error message - Test (\d+) Scenario (\d+)$/, async (testId: number, scenarioId: number) => {

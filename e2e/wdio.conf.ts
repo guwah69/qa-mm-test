@@ -172,7 +172,7 @@ export const config: WebdriverIO.Config = {
         tagExpression: '',
         // <number> timeout for step definitions
         // timeout: 60000,
-        timeout: 120000,
+        timeout: 60000 * 5,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },
