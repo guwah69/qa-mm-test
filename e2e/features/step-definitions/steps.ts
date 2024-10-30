@@ -107,7 +107,7 @@ Then(/^the page shows the input address field - Test (\d+) Scenario (\d+)$/, asy
 Then(/^the page doesn't show a network error message - Test (\d+) Scenario (\d+)$/, async (testId: number, scenarioId: number) => {
     await expect(await pages.home.networkErrorElem).not.toBeExisting();
     await browser.pause(elementUtil.elementLoadTime);
-    await browser.pause(elementUtil.elementLoadTime * 2000);
+    // await browser.pause(elementUtil.elementLoadTime * 2000);
 });
 
 Then(/^the page shows a network error message - Test (\d+) Scenario (\d+)$/, async (testId: number, scenarioId: number) => {
@@ -243,7 +243,7 @@ const handleSepoliaNetworkSwitch = async (testId: number, scenarioId: number) =>
             await browser.maximizeWindow();
             await browser.pause(elementUtil.elementLoadTime * 2.5)
             elementUtil.click(await pages.switchNetwork.switchToSepoliaNetworkButton);
-            await browser.pause(elementUtil.elementLoadTime * 2.5)
+            // await browser.pause(elementUtil.elementLoadTime * 2.5)
         }
     }
 }
