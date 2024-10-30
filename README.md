@@ -80,7 +80,7 @@ By selecting this token, the application will allow you to mint 100 tokens at a 
 
 3. Access the application at [http://localhost:3000](http://localhost:3000) using your browser
 
-### Run with Node.js
+### Run app with Node.js
 
 1. Open a terminal at the root path of this project
 2. Execute the following commands:
@@ -91,3 +91,15 @@ By selecting this token, the application will allow you to mint 100 tokens at a 
    ```
 
 3. Access the application at [http://localhost:3000](http://localhost:3000) using your browser
+
+
+### Run e2e-test with Node.js
+
+1. Open a terminal at the root path of this project
+2. cd into e2e folder
+2. Execute the following commands:
+
+   ```bash
+   npm install
+   npm run wdio
+   ```
